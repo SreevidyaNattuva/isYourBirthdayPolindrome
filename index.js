@@ -27,20 +27,47 @@ function CheckIfDateIsPalindrome(){
     }
     else
     {
-        console.log("Hi");
-        calculatenoDaystoPalindrome(bdayDate);
+        console.log("Not a palindrome");
+        calculatenoDaystoPalindrome(dateSelected);
     }
 
 }
 function calculatenoDaystoPalindrome(bdayDate){
     
-    var index=1;
-    flag = true;
-    while(index){
-       var incrementedbdayDate = new Date(bdayDate);
-       incrementedbdayDate.setDate(incrementedbdayDate.getDate()+1);
-       console.log(incrementedbdayDate);
-       index=0;
+    var inwhileset= 1;
+    var count = 0;
+    var index= 1;
+    while(inwhileset){
+       var incrementedbdayDate = new Date(bdayDate);//Passing date in yyyy-MM-DD format later I need to change it
+       incrementedbdayDate.setDate(incrementedbdayDate.getDate()+index);
+       
+       count = count+1;
+
+       if((incrementedbdayDate.getMonth()+1)<10){
+        var incrementedbdayDateCombined = (incrementedbdayDate.getDate()+"-0"+(incrementedbdayDate.getMonth()+1)+"-"+incrementedbdayDate.getFullYear());
+       }
+       else if(incrementedbdayDate.getDate()<10){
+        var incrementedbdayDateCombined = ("0"+incrementedbdayDate.getDate()+"-"+(incrementedbdayDate.getMonth()+1)+"-"+incrementedbdayDate.getFullYear());
+       }
+       else{
+       var incrementedbdayDateCombined = (incrementedbdayDate.getDate()+"-"+(incrementedbdayDate.getMonth()+1)+"-"+incrementedbdayDate.getFullYear());//Changed format to DDMMYYYY
+       }
+       //console.log(incrementedbdayDateCombined+"index"+index);
+       var incrementedbdayDateFormatted = incrementedbdayDateCombined.replaceAll("-","");
+      var incrementedbdayDateReversed = incrementedbdayDateFormatted.split("").reverse().join("");
+       //console.log(incrementedbdayDateFormatted,incrementedbdayDateReversed);
+       //index--;
+       if(incrementedbdayDateFormatted === incrementedbdayDateReversed){
+           //console.log(" Palindrome nearby after your birthday is "+incrementedbdayDateCombined+" you missed it by "+ count+" days");
+           outputShown.innerText = " Nearby Palindrome after your birthday is "+incrementedbdayDateCombined+" you missed it by "+ count+" days";
+           inwhileset = 0;
+           break; 
+       }
+       else{
+           if(count>365){inwhileset = 0;}
+           index= index+1;
+       }
+       //inwhileset--;
     }
 
 
