@@ -1,16 +1,6 @@
 var inputDate = document.querySelector("#inputdate");
 var buttonClicked = document.querySelector("#checkbutton");
 var outputShown = document.querySelector("#output");
-// function CheckIfDateIsPalindrome(){
-//     // dateSelected = new Date();
-//     // dateIncremented = new Date();
-//     console.log(inputDate.value);
-//    var dateSelected = inputDate;
-// //    dateSelected.setDate(dateSelected.getDate()+1);
-// //    console.log(dateSelected);
-//     console.log(Date(dateSelected.stepUp(1)));
-//     //console.log(dateIncremented);
-// }
 buttonClicked.addEventListener("click", CheckIfDateIsPalindrome)
 function CheckIfDateIsPalindrome(){ 
     var dateSelected = inputDate.value;
@@ -23,11 +13,11 @@ function CheckIfDateIsPalindrome(){
     //console.log(bdayDateReversed);
     if(bdayDateFormatted === bdayDateReversed)
     {
-        console.log("It is palindrome");
+        outputShown.innerText = "Hurray!! your birthday is palindrome";
     }
     else
     {
-        console.log("Not a palindrome");
+        //console.log("Not a palindrome");
         calculatenoDaystoPalindrome(dateSelected);
     }
 
@@ -56,7 +46,6 @@ function calculatenoDaystoPalindrome(bdayDate){
        var incrementedbdayDateFormatted = incrementedbdayDateCombined.replaceAll("-","");
       var incrementedbdayDateReversed = incrementedbdayDateFormatted.split("").reverse().join("");
        //console.log(incrementedbdayDateFormatted,incrementedbdayDateReversed);
-       //index--;
        if(incrementedbdayDateFormatted === incrementedbdayDateReversed){
            //console.log(" Palindrome nearby after your birthday is "+incrementedbdayDateCombined+" you missed it by "+ count+" days");
            outputShown.innerText = " Nearby Palindrome after your birthday is "+incrementedbdayDateCombined+" you missed it by "+ count+" days";
