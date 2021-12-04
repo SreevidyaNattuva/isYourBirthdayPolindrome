@@ -11,6 +11,7 @@ function CheckIfDateIsPalindrome(){
     //console.log(dateFormatted);
     var bdayDateReversed = bdayDateFormatted.split("").reverse().join("");
     //console.log(bdayDateReversed);
+    if(dateSelected){
     if(bdayDateFormatted === bdayDateReversed)
     {
         outputShown.innerText = "Hurray!! your birthday is palindrome";
@@ -20,6 +21,8 @@ function CheckIfDateIsPalindrome(){
         //console.log("Not a palindrome");
         calculatenoDaystoPalindrome(dateSelected);
     }
+    }
+    else{outputShown.innerText = "Please enter date"}
 
 }
 function calculatenoDaystoPalindrome(bdayDate){
