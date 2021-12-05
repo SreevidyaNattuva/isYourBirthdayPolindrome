@@ -1,0 +1,1 @@
+This app takes you birthday as input and shows if it's a palindrome and also gives palindrome date that comes after your birthday.
